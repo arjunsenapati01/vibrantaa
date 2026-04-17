@@ -1,0 +1,6 @@
+{
+  "outputDirectory": ".",
+  "routes": [
+    { "src": "/contact", "dest": "/contact.html" }
+  ]
+}

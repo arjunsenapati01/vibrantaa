@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Discuss Your Project — Vibrantaa Design & Tech Agency</title>
+  <meta name="description" content="Let's build something new together. Tell us about your project and our dedicated product specialists will get back to you within 24 hours." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:        #07081c;
+      --navy-mid:    #0b0c22;
+      --purple:      #3733d9;
+      --purple-dark: #2e2ab8;
+      --gold:        #f5a623;
+      --yellow:      #fdc448;
+      --white:       #ffffff;
+      --card-bg:     rgba(255,255,255,0.045);
+      --card-border: rgba(255,255,255,0.09);
+    }
+
+    html, body {
+      font-family: 'Inter', sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      height: 100%;
+      overflow: hidden; /* full-page layout, no scroll */
+    }
+
+    /* ═══════════════════════════════════════
+       HEADER
+    ═══════════════════════════════════════ */
+    .dh-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      background: rgba(7,8,28,0.85);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .dh-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .dh-logo img {
+      height: 36px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .dh-divider {
+      width: 1px;
+      height: 32px;
+      background: rgba(255,255,255,0.15);
+      margin: 0 24px;
+    }
+
+    .dh-mail-prompt {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .dh-mail-prompt-text {
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.4;
+    }
+    .dh-mail-link {
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.85);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-color: rgba(255,255,255,0.3);
+      transition: color 0.2s, text-decoration-color 0.2s;
+    }
+    .dh-mail-link:hover {
+      color: #fff;
+      text-decoration-color: rgba(255,255,255,0.7);
+    }
+
+    .dh-header-left {
+      display: flex;
+      align-items: center;
+    }
+
+    /* ═══════════════════════════════════════
+       MAIN LAYOUT
+    ═══════════════════════════════════════ */
+    .dp-main {
+      display: grid;
+      grid-template-columns: 1fr 520px;
+      height: 100vh;
+      padding-top: 72px; /* header height */
+    }
+
+    /* ═══════════════════════════════════════
+       LEFT: CTA + TESTIMONIALS
+    ═══════════════════════════════════════ */
+    .dp-left {
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 48px 52px 32px;
+      gap: 0;
+    }
+
+    /* Radial glow — behind all content (z-index: 1) */
+    .dp-left::before {
+      content: '';
+      position: absolute;
+      top: 30%;
+      left: -10%;
+      width: 600px;
+      height: 500px;
+      background: radial-gradient(ellipse at center, rgba(55,51,217,0.22) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .dp-left::after {
+      content: '';
+      position: absolute;
+      bottom: 10%;
+      right: -5%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(ellipse at center, rgba(55,51,217,0.1) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* ── CTA Heading Block ── */
+    .dp-cta-block {
+      position: relative;
+      z-index: 2;
+      margin-bottom: 44px;
+    }
+    .dp-cta-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 18px;
+    }
+    .dp-cta-eyebrow-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--yellow);
+      flex-shrink: 0;
+    }
+    .dp-cta-heading {
+      font-size: clamp(26px, 2.8vw, 38px);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.12;
+      letter-spacing: -0.04em;
+      margin-bottom: 20px;
+    }
+    .dp-cta-heading em {
+      font-style: normal;
+      background: linear-gradient(90deg, #7c73ff 0%, #b8b4ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .dp-cta-sub {
+      font-size: 15px;
+      color: rgba(255,255,255,0.52);
+      line-height: 1.65;
+      max-width: 380px;
+    }
+
+    /* Section label (client testimonials) */
+    .dp-section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.28);
+      margin-bottom: 18px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Cards track */
+    .dp-cards-track {
+      display: flex;
+      gap: 16px;
+      position: relative;
+      z-index: 2;
+      overflow-x: auto;
+      overflow-y: visible;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding-bottom: 4px;
+    }
+    .dp-cards-track::-webkit-scrollbar { display: none; }
+
+    /* Individual testimonial card */
+    .dp-tcard {
+      flex: 0 0 260px;
+      background: rgba(255,255,255,0.055);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .dp-tcard:hover {
+      border-color: rgba(255,255,255,0.2);
+      transform: translateY(-3px);
+    }
+    /* Partially visible (3rd card) */
+    .dp-tcard.peek {
+      flex: 0 0 200px;
+      opacity: 0.6;
+    }
+
+    .dp-tcard-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 24px;
+    }
+    .dp-tcard-brand-name {
+      font-size: 18px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.03em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .dp-tcard-brand-name .brand-icon {
+      font-size: 14px;
+      opacity: 0.7;
+    }
+    .dp-tcard-industry {
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+      font-weight: 500;
+    }
+
+    .dp-tcard-quote {
+      font-size: 14px;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.65;
+      flex: 1;
+      margin-bottom: 24px;
+    }
+    .dp-tcard-quote strong {
+      color: rgba(255,255,255,0.95);
+      font-weight: 600;
+    }
+
+    .dp-tcard-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .dp-tcard-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--purple);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    .dp-tcard-avatar.av1 { background: linear-gradient(135deg, #4a90d9 0%, #2255a4 100%); }
+    .dp-tcard-avatar.av2 { background: linear-gradient(135deg, #e87548 0%, #c94d22 100%); }
+    .dp-tcard-avatar.av3 { background: linear-gradient(135deg, #34b88c 0%, #0f8a61 100%); }
+    .dp-tcard-author-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+    }
+    .dp-tcard-author-role {
+      font-size: 11px;
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* Stars */
+    .dp-stars {
+      display: flex;
+      gap: 2px;
+      margin-bottom: 18px;
+    }
+    .dp-stars svg {
+      color: #f5a623;
+    }
+
+    /* Bottom tagline */
+    .dp-left-footer {
+      position: relative;
+      z-index: 2;
+      margin-top: 40px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .dp-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .dp-stat-number {
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.03em;
+    }
+    .dp-stat-label {
+      font-size: 11px;
+      color: rgba(255,255,255,0.35);
+      font-weight: 500;
+    }
+    .dp-stat-divider {
+      width: 1px;
+      height: 36px;
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* ═══════════════════════════════════════
+       RIGHT: FORM CARD
+    ═══════════════════════════════════════ */
+    .dp-right {
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow-y: auto;
+      padding: 48px 52px 40px;
+    }
+
+    /* Scrollbar styling */
+    .dp-right::-webkit-scrollbar {
+      width: 4px;
+    }
+    .dp-right::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .dp-right::-webkit-scrollbar-thumb {
+      background: rgba(55,51,217,0.2);
+      border-radius: 4px;
+    }
+
+    .dp-form-title {
+      font-size: clamp(26px, 2.6vw, 36px);
+      font-weight: 800;
+      color: #07081c;
+      line-height: 1.18;
+      letter-spacing: -0.03em;
+      margin-bottom: 36px;
+    }
+
+    /* Form underline accent */
+    .dp-form-title-underline {
+      display: block;
+      width: 48px;
+      height: 3px;
+      background: var(--purple);
+      border-radius: 2px;
+      margin-top: 16px;
+    }
+
+    /* Form fields */
+    .dp-form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-bottom: 20px;
+    }
+    .dp-form-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #07081c;
+      letter-spacing: 0.02em;
+      margin-bottom: 8px;
+    }
+    .dp-form-label .required {
+      color: #e63946;
+      margin-left: 2px;
+    }
+    .dp-form-input {
+      height: 52px;
+      border: none;
+      border-bottom: 1.5px solid #d8d8e8;
+      background: transparent;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      color: #07081c;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+      padding: 0 2px;
+    }
+    .dp-form-input::placeholder { color: rgba(7,8,28,0.25); }
+    .dp-form-input:focus { border-bottom-color: var(--purple); }
+
+    /* Phone row */
+    .dp-phone-row {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      border-bottom: 1.5px solid #d8d8e8;
+      transition: border-color 0.2s;
+    }
+    .dp-phone-row:focus-within {
+      border-bottom-color: var(--purple);
+    }
+    .dp-phone-country {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0 12px 0 2px;
+      height: 52px;
+      cursor: pointer;
+      flex-shrink: 0;
+      border-right: 1.5px solid #d8d8e8;
+      margin-right: 14px;
+      user-select: none;
+      position: relative;
+    }
+    .dp-flag {
+      font-size: 20px;
+      line-height: 1;
+    }
+    .dp-phone-code {
+      font-size: 14px;
+      font-weight: 600;
+      color: #07081c;
+    }
+    .dp-phone-chevron {
+      color: rgba(7,8,28,0.35);
+    }
+    .dp-phone-input {
+      flex: 1;
+      height: 52px;
+      border: none;
+      background: transparent;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      color: #07081c;
+      outline: none;
+      padding: 0;
+    }
+    .dp-phone-input::placeholder { color: rgba(7,8,28,0.25); }
+
+    /* Country dropdown */
+    .dp-country-dropdown {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      background: #fff;
+      border: 1px solid #e0e0ee;
+      border-radius: 12px;
+      box-shadow: 0 8px 40px rgba(7,8,28,0.12);
+      z-index: 50;
+      overflow: hidden;
+      display: none;
+      min-width: 220px;
+    }
+    .dp-country-dropdown.open {
+      display: block;
+      animation: fadeDown 0.18s ease;
+    }
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .dp-country-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+      color: #07081c;
+      transition: background 0.15s;
+    }
+    .dp-country-option:hover { background: #f5f5fa; }
+    .dp-country-option.active { background: rgba(55,51,217,0.07); color: var(--purple); }
+
+    /* Submit button */
+    .dp-submit-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      height: 58px;
+      background: var(--purple);
+      color: #fff;
+      border: none;
+      border-radius: 100px;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      margin-top: 8px;
+      margin-bottom: 20px;
+      transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .dp-submit-btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0);
+      transition: background 0.2s;
+      border-radius: 100px;
+    }
+    .dp-submit-btn:hover {
+      background: #4a43f0;
+      transform: translateY(-1px);
+      box-shadow: 0 12px 40px rgba(55,51,217,0.42);
+    }
+    .dp-submit-btn:active {
+      transform: translateY(0);
+      box-shadow: none;
+    }
+    .dp-submit-btn.loading {
+      pointer-events: none;
+      opacity: 0.75;
+    }
+    .dp-submit-btn.success {
+      background: #16a34a;
+    }
+
+    /* Arrow icon in button */
+    .dp-submit-arrow {
+      transition: transform 0.2s ease;
+    }
+    .dp-submit-btn:hover .dp-submit-arrow {
+      transform: translateX(3px);
+    }
+
+    /* Privacy note */
+    .dp-privacy {
+      font-size: 12px;
+      color: rgba(7,8,28,0.4);
+      line-height: 1.6;
+    }
+    .dp-privacy a {
+      color: var(--purple);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    /* ═══════════════════════════════════════
+       TRUST BAR (bottom strip)
+    ═══════════════════════════════════════ */
+    .dp-trustbar {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 99;
+      background: rgba(7,8,28,0.97);
+      border-top: 1px solid rgba(255,255,255,0.07);
+      backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 60px;
+    }
+
+    .dp-trust-items {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+    .dp-trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.75);
+    }
+    .dp-trust-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(55,51,217,0.3);
+      border: 1.5px solid rgba(55,51,217,0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .dp-trust-icon svg {
+      color: #fff;
+    }
+
+    .dp-faq-link {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      text-decoration: none;
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+    .dp-faq-link span {
+      color: rgba(255,255,255,0.75);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: color 0.2s;
+    }
+    .dp-faq-link:hover span {
+      color: #fff;
+    }
+
+    /* ═══════════════════════════════════════
+       BODY ADJUSTMENT for trust bar
+    ═══════════════════════════════════════ */
+    .dp-main {
+      /* Subtract trust bar height from bottom */
+      padding-bottom: 60px;
+    }
+    .dp-right {
+      /* Also account for trust bar */
+      padding-bottom: 28px;
+    }
+
+    /* ═══════════════════════════════════════
+       SCROLL ANIMATION (cards auto-scroll)
+    ═══════════════════════════════════════ */
+    .dp-cards-wrapper {
+      position: relative;
+      z-index: 2;
+    }
+    .dp-cards-fade-right {
+      position: absolute;
+      right: 0; top: 0; bottom: 0;
+      width: 80px;
+      background: linear-gradient(to left, var(--navy) 0%, transparent 100%);
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    /* ═══════════════════════════════════════
+       SUCCESS STATE
+    ═══════════════════════════════════════ */
+    .dp-success-overlay {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 20px;
+      padding: 40px 0;
+    }
+    .dp-success-overlay.show {
+      display: flex;
+    }
+    .dp-form-content.hidden {
+      display: none;
+    }
+    .dp-success-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--purple) 0%, #7c3aed 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+    @keyframes popIn {
+      from { transform: scale(0.5); opacity: 0; }
+      to   { transform: scale(1); opacity: 1; }
+    }
+    .dp-success-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: #07081c;
+      letter-spacing: -0.02em;
+    }
+    .dp-success-sub {
+      font-size: 14px;
+      color: rgba(7,8,28,0.5);
+      line-height: 1.6;
+      max-width: 280px;
+    }
+
+    /* ═══════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════ */
+    @media (max-width: 900px) {
+      .dp-main {
+        grid-template-columns: 1fr;
+        height: auto;
+        overflow: auto;
+      }
+      html, body { overflow: auto; }
+      .dp-left {
+        padding: 36px 24px 32px;
+        min-height: auto;
+      }
+      .dp-left::before, .dp-left::after { display: none; }
+      .dp-right {
+        overflow: auto;
+        padding: 36px 24px 40px;
+      }
+      .dh-header { padding: 0 20px; }
+      .dh-divider, .dh-mail-prompt { display: none; }
+      .dp-trustbar {
+        position: relative;
+        height: auto;
+        padding: 16px 20px;
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+      }
+      .dp-trust-items { flex-direction: column; gap: 10px; align-items: flex-start; }
+      .dp-main { padding-bottom: 0; }
+    }
+
+    @media (max-width: 600px) {
+      .dp-form-title { font-size: 24px; }
+      .dp-tcard { flex: 0 0 220px; padding: 22px 18px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════ HEADER ═══════════════════ -->
+<header class="dh-header">
+  <div class="dh-header-left">
+    <a href="/" class="dh-logo">
+      <img src="vibrantaa logo .png" alt="Vibrantaa" />
+    </a>
+    <div class="dh-divider"></div>
+    <div class="dh-mail-prompt">
+      <div class="dh-mail-prompt-text">Prefer direct mail?</div>
+      &nbsp;
+      <a href="mailto:hello@vibrantaa.com" class="dh-mail-link">hello@vibrantaa.com</a>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════ MAIN LAYOUT ═══════════════════ -->
+<div class="dp-main">
+
+  <!-- ─── LEFT: CTA + TESTIMONIALS ─── -->
+  <div class="dp-left">
+
+    <!-- CTA Heading -->
+    <div class="dp-cta-block">
+      <div class="dp-cta-eyebrow">
+        <span class="dp-cta-eyebrow-dot"></span>
+        Let's connect
+      </div>
+      <h1 class="dp-cta-heading">
+        Ready to discuss<br>
+        your project <em>with us?</em>
+      </h1>
+      <p class="dp-cta-sub">
+        Let's talk about how we can craft a user experience that not only looks great but drives real growth for your product.
+      </p>
+    </div>
+
+    <div class="dp-section-label">What our clients say</div>
+
+    <div class="dp-cards-wrapper">
+      <div class="dp-cards-track" id="dpCardsTrack">
+
+        <!-- Card 1 -->
+        <div class="dp-tcard">
+          <div class="dp-tcard-brand">
+            <div class="dp-tcard-brand-name">NovaSpark</div>
+            <div class="dp-tcard-industry">SaaS</div>
+          </div>
+          <div class="dp-stars">
+            <!-- 5 stars -->
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div class="dp-tcard-quote">
+            "During the collaboration, Vibrantaa <strong>prioritized our team's vision</strong>, always taking into account our input and giving all members a voice."
+          </div>
+          <div class="dp-tcard-author">
+            <div class="dp-tcard-avatar av1">JL</div>
+            <div>
+              <div class="dp-tcard-author-name">Justin Lopez</div>
+              <div class="dp-tcard-author-role">CPO at NovaSpark</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="dp-tcard">
+          <div class="dp-tcard-brand">
+            <div class="dp-tcard-brand-name">Relocate Now</div>
+            <div class="dp-tcard-industry">Real estate</div>
+          </div>
+          <div class="dp-stars">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div class="dp-tcard-quote">
+            "Vibrantaa is <strong>very organized in planning</strong> to achieve goals within the set deadlines. Communication was always super easy and value-added."
+          </div>
+          <div class="dp-tcard-author">
+            <div class="dp-tcard-avatar av2">AA</div>
+            <div>
+              <div class="dp-tcard-author-name">Alvaro Araujo</div>
+              <div class="dp-tcard-author-role">Founder & CEO, Relocate Now</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 (partially visible) -->
+        <div class="dp-tcard peek">
+          <div class="dp-tcard-brand">
+            <div class="dp-tcard-brand-name">MedFlow</div>
+            <div class="dp-tcard-industry">Health tech</div>
+          </div>
+          <div class="dp-stars">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div class="dp-tcard-quote">
+            "I was <strong>impressed by their speed</strong> and attention to detail. They delivered a world-class product..."
+          </div>
+          <div class="dp-tcard-author">
+            <div class="dp-tcard-avatar av3">SR</div>
+            <div>
+              <div class="dp-tcard-author-name">Saniya Rao</div>
+              <div class="dp-tcard-author-role">Head of Product, MedFlow</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- Fade right edge -->
+      <div class="dp-cards-fade-right"></div>
+    </div>
+
+    <!-- Stats -->
+    <div class="dp-left-footer">
+      <div class="dp-stat">
+        <div class="dp-stat-number">50+</div>
+        <div class="dp-stat-label">Projects delivered</div>
+      </div>
+      <div class="dp-stat-divider"></div>
+      <div class="dp-stat">
+        <div class="dp-stat-number">4.9★</div>
+        <div class="dp-stat-label">Average rating</div>
+      </div>
+      <div class="dp-stat-divider"></div>
+      <div class="dp-stat">
+        <div class="dp-stat-number">24h</div>
+        <div class="dp-stat-label">Response time</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── RIGHT: FORM ─── -->
+  <div class="dp-right" id="dpRightPanel">
+
+    <!-- Success overlay -->
+    <div class="dp-success-overlay" id="dpSuccess">
+      <div class="dp-success-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+      </div>
+      <div class="dp-success-title">Message sent!</div>
+      <div class="dp-success-sub">We'll get back to you at your email within 24 hours.</div>
+    </div>
+
+    <!-- Form content -->
+    <div class="dp-form-content" id="dpFormContent">
+      <h1 class="dp-form-title">
+        Let's build something<br>new today together
+        <span class="dp-form-title-underline"></span>
+      </h1>
+
+      <form id="dpForm" novalidate>
+        <!-- Full name -->
+        <div class="dp-form-group">
+          <label class="dp-form-label" for="dp-name">Full name <span class="required">*</span></label>
+          <input
+            class="dp-form-input"
+            type="text"
+            id="dp-name"
+            name="name"
+            placeholder=""
+            autocomplete="name"
+            required
+          />
+        </div>
+
+        <!-- Company email -->
+        <div class="dp-form-group">
+          <label class="dp-form-label" for="dp-email">Company email <span class="required">*</span></label>
+          <input
+            class="dp-form-input"
+            type="email"
+            id="dp-email"
+            name="email"
+            placeholder=""
+            autocomplete="email"
+            required
+          />
+        </div>
+
+        <!-- Phone -->
+        <div class="dp-form-group">
+          <div class="dp-phone-row" id="dpPhoneRow">
+            <!-- Country picker -->
+            <div class="dp-phone-country" id="dpCountryPicker" role="button" tabindex="0" aria-haspopup="listbox" aria-label="Select country code">
+              <span class="dp-flag" id="dpFlag">🇮🇳</span>
+              <span class="dp-phone-code" id="dpCode">+91</span>
+              <svg class="dp-phone-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+
+              <!-- Dropdown -->
+              <div class="dp-country-dropdown" id="dpCountryDropdown" role="listbox">
+                <div class="dp-country-option active" data-flag="🇮🇳" data-code="+91" role="option">🇮🇳 India (+91)</div>
+                <div class="dp-country-option" data-flag="🇺🇸" data-code="+1" role="option">🇺🇸 United States (+1)</div>
+                <div class="dp-country-option" data-flag="🇬🇧" data-code="+44" role="option">🇬🇧 United Kingdom (+44)</div>
+                <div class="dp-country-option" data-flag="🇦🇪" data-code="+971" role="option">🇦🇪 UAE (+971)</div>
+                <div class="dp-country-option" data-flag="🇸🇬" data-code="+65" role="option">🇸🇬 Singapore (+65)</div>
+                <div class="dp-country-option" data-flag="🇦🇺" data-code="+61" role="option">🇦🇺 Australia (+61)</div>
+                <div class="dp-country-option" data-flag="🇨🇦" data-code="+1" role="option">🇨🇦 Canada (+1)</div>
+                <div class="dp-country-option" data-flag="🇩🇪" data-code="+49" role="option">🇩🇪 Germany (+49)</div>
+              </div>
+            </div>
+
+            <input
+              class="dp-phone-input"
+              type="tel"
+              id="dp-phone"
+              name="phone"
+              placeholder="98765 43210"
+              autocomplete="tel-national"
+            />
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <button class="dp-submit-btn" type="submit" id="dpSubmitBtn">
+          <span id="dpBtnText">Discuss Project</span>
+          <svg class="dp-submit-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+
+        <!-- Privacy note -->
+        <p class="dp-privacy">
+          By submitting the form I agree with the <a href="#">Privacy Policy</a> and
+          consent to receive updates from Vibrantaa.
+        </p>
+      </form>
+    </div>
+
+  </div>
+
+</div><!-- /.dp-main -->
+
+<!-- ═══════════════════ TRUST BAR ═══════════════════ -->
+<div class="dp-trustbar">
+  <div class="dp-trust-items">
+    <div class="dp-trust-item">
+      <div class="dp-trust-icon">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      We will respond to you within 24 hours.
+    </div>
+    <div class="dp-trust-item">
+      <div class="dp-trust-icon">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      We'll sign an NDA if requested
+    </div>
+    <div class="dp-trust-item">
+      <div class="dp-trust-icon">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      Access to dedicated product specialists
+    </div>
+  </div>
+  <a href="/contact.html" class="dp-faq-link">
+    Have questions? <span>Check our FAQ</span>
+  </a>
+</div>
+
+<script>
+  // ─── Country picker ───────────────────────────────
+  const picker     = document.getElementById('dpCountryPicker');
+  const dropdown   = document.getElementById('dpCountryDropdown');
+  const flagEl     = document.getElementById('dpFlag');
+  const codeEl     = document.getElementById('dpCode');
+
+  picker.addEventListener('click', e => {
+    e.stopPropagation();
+    dropdown.classList.toggle('open');
+  });
+  picker.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      dropdown.classList.toggle('open');
+    }
+  });
+
+  document.querySelectorAll('.dp-country-option').forEach(opt => {
+    opt.addEventListener('click', e => {
+      e.stopPropagation();
+      document.querySelectorAll('.dp-country-option').forEach(o => o.classList.remove('active'));
+      opt.classList.add('active');
+      flagEl.textContent = opt.dataset.flag;
+      codeEl.textContent = opt.dataset.code;
+      dropdown.classList.remove('open');
+    });
+  });
+
+  document.addEventListener('click', () => dropdown.classList.remove('open'));
+
+  // ─── Form submission ───────────────────────────────
+  const form       = document.getElementById('dpForm');
+  const submitBtn  = document.getElementById('dpSubmitBtn');
+  const btnText    = document.getElementById('dpBtnText');
+  const formContent = document.getElementById('dpFormContent');
+  const successEl  = document.getElementById('dpSuccess');
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const name  = document.getElementById('dp-name').value.trim();
+    const email = document.getElementById('dp-email').value.trim();
+
+    if (!name || !email) {
+      // Simple field shake on empty required fields
+      if (!name)  shakeField('dp-name');
+      if (!email) shakeField('dp-email');
+      return;
+    }
+
+    // Loading state
+    submitBtn.classList.add('loading');
+    btnText.textContent = 'Sending…';
+
+    // Simulate async submit (replace with real fetch)
+    setTimeout(() => {
+      formContent.classList.add('hidden');
+      successEl.classList.add('show');
+    }, 1400);
+  });
+
+  function shakeField(id) {
+    const el = document.getElementById(id);
+    el.style.borderBottomColor = '#e63946';
+    el.style.animation = 'none';
+    requestAnimationFrame(() => {
+      el.style.animation = 'shake 0.4s ease';
+    });
+    el.addEventListener('input', () => {
+      el.style.borderBottomColor = '';
+    }, { once: true });
+  }
+
+  // Shake keyframes (injected dynamically)
+  const shakeStyle = document.createElement('style');
+  shakeStyle.textContent = `
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20%       { transform: translateX(-6px); }
+      40%       { transform: translateX(6px); }
+      60%       { transform: translateX(-4px); }
+      80%       { transform: translateX(4px); }
+    }
+  `;
+  document.head.appendChild(shakeStyle);
+
+  // ─── Cards slow auto-scroll ───────────────────────
+  const track = document.getElementById('dpCardsTrack');
+  let scrollPos = 0;
+  let paused = false;
+
+  track.addEventListener('mouseenter', () => paused = true);
+  track.addEventListener('mouseleave', () => paused = false);
+
+  function animateCards() {
+    if (!paused) {
+      scrollPos += 0.4;
+      const maxScroll = track.scrollWidth - track.clientWidth;
+      if (scrollPos >= maxScroll) scrollPos = 0;
+      track.scrollLeft = scrollPos;
+    }
+    requestAnimationFrame(animateCards);
+  }
+  requestAnimationFrame(animateCards);
+</script>
+
+</body>
+</html>
