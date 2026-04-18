@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UI/UX Design Services — Vibrantaa</title>
+  <meta name="description" content="UI/UX design that gets your B2B product to market 40% faster — no quality tradeoffs. 500+ finished projects, 12 years of experience." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:       #08091e;
+      --purple:     #3733d9;
+      --gold:       #f5a623;
+      --white:      #ffffff;
+      --blue:       #3719ca;
+      --blue-dark:  #02021e;
+      --yellow:     #facc15;
+      --indigo:     #3b28cc;
+    }
+
+    html, body {
+      font-family: 'Inter', sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ─── HEADER ─── */
+    .site-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 93;
+      padding-top: 1.5rem;
+    }
+    .header__blur {
+      position: absolute;
+      inset: 0;
+      backdrop-filter: blur(45px);
+      background-color: rgba(2, 2, 30, 0.75);
+      z-index: -1;
+    }
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 4.5rem;
+      max-width: 82rem;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .logo { height: 36px; width: auto; display: block; }
+    .header__nav {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    .header__nav-link {
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--white);
+      text-decoration: none;
+      padding: 0.5rem 0.875rem;
+      border-radius: 0.5rem;
+      transition: color 0.2s;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.375rem;
+    }
+    .header__nav-link:hover { color: var(--yellow); }
+    .header__cta {
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+      background: var(--white);
+      color: var(--navy);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 0.625rem 1.25rem;
+      border-radius: 2rem;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .header__cta:hover { background: var(--yellow); transform: translateY(-1px); }
+
+    /* ─── PAGE LAYOUT ─── */
+    .page-wrap {
+      padding-top: 8rem;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 82rem;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ─── BREADCRUMB ─── */
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 2.5rem;
+    }
+    .breadcrumb a { color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--white); }
+    .breadcrumb__sep { opacity: 0.3; }
+    .breadcrumb__current { color: rgba(255,255,255,0.75); }
+
+    /* ─── SERVICE HERO ─── */
+    .service-hero {
+      margin-bottom: 4rem;
+    }
+    .service-hero__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      background: rgba(250, 204, 21, 0.1);
+      border: 1px solid rgba(250, 204, 21, 0.2);
+      padding: 0.375rem 0.875rem;
+      border-radius: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .service-hero__eyebrow-dot {
+      width: 6px; height: 6px;
+      background: var(--yellow);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.5; transform: scale(0.75); }
+    }
+    .service-hero__heading {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      max-width: 42rem;
+      margin-bottom: 1.5rem;
+    }
+    .service-hero__heading em {
+      font-style: normal;
+      color: var(--yellow);
+    }
+    .service-hero__sub {
+      font-size: 1.125rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.6);
+      max-width: 38rem;
+      margin-bottom: 2.5rem;
+    }
+    .service-hero__actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.625rem;
+      background: var(--yellow);
+      color: #0a0a0a;
+      font-size: 0.9375rem;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 0.875rem 1.75rem;
+      border-radius: 2rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(250,204,21,0.3); }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.9375rem;
+      font-weight: 500;
+      text-decoration: none;
+      padding: 0.875rem 0;
+      transition: color 0.2s;
+    }
+    .btn-secondary:hover { color: var(--white); }
+
+    /* ─── PROMO BANNER CARD ─── */
+    .promo-banner {
+      background: var(--indigo);
+      border-radius: 1.5rem;
+      /* Folder tab: angled cut top-left */
+      clip-path: polygon(2.5rem 0%, 100% 0%, 100% 100%, 0% 100%, 0% 2.5rem);
+      padding: 2.75rem 3rem;
+      margin-bottom: 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Subtle inner glow */
+    .promo-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 50% at 10% 0%, rgba(255,255,255,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Top section: headline + thumbnail */
+    .promo-banner__top {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2.5rem;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    .promo-banner__headline {
+      font-size: clamp(1.5rem, 3vw, 2.125rem);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      max-width: 32rem;
+    }
+    .promo-banner__headline .hl {
+      color: var(--yellow);
+    }
+
+    /* Thumbnail */
+    .promo-banner__thumb {
+      position: relative;
+      width: 14rem;
+      height: 9.5rem;
+      border-radius: 0.875rem;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .promo-thumb-grid {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 0;
+    }
+    .promo-thumb-cell {
+      padding: 0.625rem;
+      border: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .ptc-label {
+      font-size: 0.45rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+    /* Type sample */
+    .ptc-type-aa {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: rgba(255,255,255,0.9);
+      line-height: 1;
+      margin-top: auto;
+    }
+    /* Logo sample */
+    .ptc-logo-box {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .ptc-logo-circle {
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: var(--yellow);
+      flex-shrink: 0;
+    }
+    .ptc-logo-text {
+      font-size: 0.55rem;
+      font-weight: 800;
+      color: rgba(255,255,255,0.85);
+      letter-spacing: -0.02em;
+    }
+    /* Color swatches */
+    .ptc-swatches {
+      display: flex;
+      gap: 0.2rem;
+      margin-top: auto;
+    }
+    .ptc-swatch {
+      flex: 1;
+      height: 18px;
+      border-radius: 0.2rem;
+    }
+    /* Grid sample */
+    .ptc-grid-mini {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.2rem;
+      margin-top: auto;
+    }
+    .ptc-grid-cell {
+      height: 14px;
+      border-radius: 0.15rem;
+      background: rgba(255,255,255,0.15);
+    }
+    .ptc-grid-cell.accent { background: rgba(250,204,21,0.45); }
+
+    /* Play button overlay */
+    .promo-thumb-play {
+      position: absolute;
+      bottom: 0.625rem;
+      left: 0.625rem;
+      width: 2.25rem;
+      height: 2.25rem;
+      background: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .promo-thumb-play:hover { transform: scale(1.08); box-shadow: 0 6px 18px rgba(0,0,0,0.45); }
+    .play-triangle {
+      width: 0; height: 0;
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      border-left: 10px solid #0a0a0a;
+      margin-left: 2px;
+    }
+
+    /* Divider */
+    .promo-banner__divider {
+      height: 1px;
+      background: rgba(255,255,255,0.15);
+      margin-bottom: 2rem;
+    }
+
+    /* Bottom section: features + CTA */
+    .promo-banner__bottom {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .promo-feature {
+      display: flex;
+      align-items: center;
+      gap: 0.875rem;
+      flex: 1;
+      min-width: 13rem;
+    }
+    .promo-feature__icon {
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .promo-feature__icon svg {
+      width: 1.125rem;
+      height: 1.125rem;
+      color: var(--white);
+    }
+    .promo-feature__text {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.4;
+    }
+
+    /* CTA button */
+    .promo-cta {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      flex-shrink: 0;
+      margin-left: auto;
+    }
+    .promo-cta__lightning {
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: 50%;
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      z-index: 1;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .promo-cta__btn {
+      display: inline-flex;
+      align-items: center;
+      background: var(--yellow);
+      color: #0a0a0a;
+      font-size: 0.875rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.875rem 1.5rem 0.875rem 1rem;
+      border-radius: 0 2rem 2rem 0;
+      margin-left: -1.375rem;
+      padding-left: 2rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+    .promo-cta__btn:hover { transform: translateX(3px); box-shadow: 4px 0 20px rgba(250,204,21,0.35); }
+
+    /* ─── PROCESS SECTION ─── */
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 1rem;
+    }
+    .section-heading {
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+    .section-heading em { font-style: normal; color: var(--yellow); }
+    .section-sub {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.7;
+      max-width: 36rem;
+      margin-bottom: 3rem;
+    }
+
+    /* Process steps */
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 5rem;
+    }
+    .process-step {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 1.25rem;
+      padding: 1.75rem;
+      transition: background 0.25s, border-color 0.25s, transform 0.22s;
+    }
+    .process-step:hover {
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(255,255,255,0.13);
+      transform: translateY(-3px);
+    }
+    .process-step__num {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--yellow);
+      opacity: 0.7;
+      margin-bottom: 1rem;
+    }
+    .process-step__title {
+      font-size: 1.0625rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .process-step__desc {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.6;
+    }
+
+    /* ─── DELIVERABLES ─── */
+    .deliverables-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 5rem;
+    }
+    .deliverable-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 0.875rem;
+      padding: 1rem 1.25rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+    .deliverable-item__dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--yellow);
+      flex-shrink: 0;
+    }
+
+    /* ─── STATS STRIP ─── */
+    .stats-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 1.25rem;
+      overflow: hidden;
+      margin-bottom: 5rem;
+    }
+    .stat-block {
+      background: rgba(255,255,255,0.03);
+      padding: 2rem 1.75rem;
+      text-align: center;
+    }
+    .stat-block__num {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--yellow);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .stat-block__label {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.4;
+    }
+
+    /* ─── CTA SECTION ─── */
+    .cta-section {
+      text-align: center;
+      padding: 5rem 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .cta-section__heading {
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+    }
+    .cta-section__heading em { font-style: normal; color: var(--yellow); }
+    .cta-section__sub {
+      font-size: 1.0625rem;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 2.5rem;
+    }
+    .cta-section__actions {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* ─── FOOTER ─── */
+    .page-footer {
+      background: #02021e;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 2.5rem 0;
+    }
+    .page-footer__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .footer-copy {
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.35);
+    }
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .footer-links a {
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.35);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: rgba(255,255,255,0.7); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .promo-banner__top { grid-template-columns: 1fr; }
+      .promo-banner__thumb { width: 100%; height: 12rem; }
+      .promo-thumb-grid { display: grid; }
+      .promo-banner__bottom { gap: 1.25rem; }
+      .promo-cta { margin-left: 0; width: 100%; }
+      .promo-cta__btn { flex: 1; justify-content: center; }
+      .stats-strip { grid-template-columns: repeat(2, 1fr); }
+      .hide-mobile { display: none; }
+    }
+    @media (max-width: 600px) {
+      .promo-banner { padding: 1.75rem 1.5rem; clip-path: polygon(1.75rem 0%, 100% 0%, 100% 100%, 0% 100%, 0% 1.75rem); }
+      .stats-strip { grid-template-columns: 1fr 1fr; }
+      .process-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header" id="header">
+  <div class="header__blur"></div>
+  <div class="header-container">
+    <a href="/" class="logo-link">
+      <img src="/vibrantaa logo .png" alt="Vibrantaa" class="logo" width="140" height="36">
+    </a>
+    <nav class="header__nav hide-mobile">
+      <a href="/services/ui-ux-design" class="header__nav-link" style="color:var(--yellow)">UI/UX Design</a>
+      <a href="/#projects" class="header__nav-link">Projects</a>
+      <a href="/contact.html" class="header__nav-link">Contact</a>
+    </nav>
+    <a href="/contact.html" class="header__cta">
+      Book a call
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</header>
+
+<!-- PAGE -->
+<main class="page-wrap">
+  <div class="container">
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span class="breadcrumb__sep">›</span>
+      <a href="/#services">Services</a>
+      <span class="breadcrumb__sep">›</span>
+      <span class="breadcrumb__current">UI/UX Design</span>
+    </nav>
+
+    <!-- Hero -->
+    <section class="service-hero">
+      <div class="service-hero__eyebrow">
+        <span class="service-hero__eyebrow-dot"></span>
+        B2B Product Design
+      </div>
+      <h1 class="service-hero__heading">
+        Design that ships <em>faster,</em><br>converts harder.
+      </h1>
+      <p class="service-hero__sub">
+        We turn complex B2B products into intuitive, beautiful interfaces — using our proven framework and AI-powered tools to cut delivery time without cutting quality.
+      </p>
+      <div class="service-hero__actions">
+        <a href="/contact.html" class="btn-primary">
+          Book a free discovery call
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#process" class="btn-secondary">
+          See our process
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- ═══ PROMO BANNER CARD ═══ -->
+    <section class="promo-banner" aria-label="UI/UX Design value proposition">
+
+      <!-- Top: Headline + Thumbnail -->
+      <div class="promo-banner__top">
+
+        <h2 class="promo-banner__headline">
+          <span class="hl">UI/UX design</span> that gets your B2B product
+          to market <span class="hl">40% faster</span> —
+          no quality tradeoffs
+        </h2>
+
+        <!-- Brand Guidelines Thumbnail -->
+        <div class="promo-banner__thumb" role="img" aria-label="Brand guidelines preview">
+          <div class="promo-thumb-grid">
+            <!-- Cell 1: Typography -->
+            <div class="promo-thumb-cell" style="background: rgba(0,0,0,0.2);">
+              <span class="ptc-label">Typography</span>
+              <span class="ptc-type-aa">Aa</span>
+            </div>
+            <!-- Cell 2: Logo -->
+            <div class="promo-thumb-cell" style="background: rgba(255,255,255,0.05);">
+              <span class="ptc-label">Logo</span>
+              <div class="ptc-logo-box">
+                <div class="ptc-logo-circle"></div>
+                <span class="ptc-logo-text">vibrantaa</span>
+              </div>
+            </div>
+            <!-- Cell 3: Color Swatches -->
+            <div class="promo-thumb-cell" style="background: rgba(255,255,255,0.03);">
+              <span class="ptc-label">Colors</span>
+              <div class="ptc-swatches">
+                <div class="ptc-swatch" style="background:#3b28cc"></div>
+                <div class="ptc-swatch" style="background:#facc15"></div>
+                <div class="ptc-swatch" style="background:#ffffff"></div>
+                <div class="ptc-swatch" style="background:#08091e"></div>
+              </div>
+            </div>
+            <!-- Cell 4: Grid Components -->
+            <div class="promo-thumb-cell" style="background: rgba(0,0,0,0.15);">
+              <span class="ptc-label">Components</span>
+              <div class="ptc-grid-mini">
+                <div class="ptc-grid-cell accent"></div>
+                <div class="ptc-grid-cell"></div>
+                <div class="ptc-grid-cell"></div>
+                <div class="ptc-grid-cell accent"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Play button -->
+          <div class="promo-thumb-play" role="button" aria-label="Watch showreel">
+            <div class="play-triangle"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <div class="promo-banner__divider" role="separator"></div>
+
+      <!-- Bottom: Features + CTA -->
+      <div class="promo-banner__bottom">
+
+        <!-- Feature 1 -->
+        <div class="promo-feature">
+          <div class="promo-feature__icon" aria-hidden="true">
+            <!-- Layers/stack icon -->
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 10l8 4 8-4M2 6l8 4 8-4-8-4-8 4z"/>
+            </svg>
+          </div>
+          <p class="promo-feature__text">Our unique framework + AI tools deliver results <strong>2x faster</strong></p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="promo-feature">
+          <div class="promo-feature__icon" aria-hidden="true">
+            <!-- Checkmark circle icon -->
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="10" cy="10" r="7.5"/>
+              <path d="M6.5 10.5l2.5 2.5 4.5-5"/>
+            </svg>
+          </div>
+          <p class="promo-feature__text">Based on <strong>500+ finished projects</strong> &amp; 12 years of experience</p>
+        </div>
+
+        <!-- CTA -->
+        <div class="promo-cta">
+          <div class="promo-cta__lightning" aria-hidden="true">
+            <!-- Lightning bolt -->
+            <svg width="16" height="20" viewBox="0 0 16 20" fill="none">
+              <path d="M9 1L1 11h7l-1 8 8-10H8L9 1z" fill="#0a0a0a" stroke="#0a0a0a" stroke-width="1" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <a href="/contact.html" class="promo-cta__btn">Book a Call</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══ STATS ═══ -->
+    <div class="stats-strip" role="list">
+      <div class="stat-block" role="listitem">
+        <div class="stat-block__num">500+</div>
+        <div class="stat-block__label">Projects completed</div>
+      </div>
+      <div class="stat-block" role="listitem">
+        <div class="stat-block__num">40%</div>
+        <div class="stat-block__label">Faster time-to-market</div>
+      </div>
+      <div class="stat-block" role="listitem">
+        <div class="stat-block__num">12yr</div>
+        <div class="stat-block__label">Industry experience</div>
+      </div>
+      <div class="stat-block" role="listitem">
+        <div class="stat-block__num">4.9★</div>
+        <div class="stat-block__label">Average client rating</div>
+      </div>
+    </div>
+
+    <!-- ═══ PROCESS ═══ -->
+    <section id="process">
+      <p class="section-label">How we work</p>
+      <h2 class="section-heading">Our 4-step <em>design process</em></h2>
+      <p class="section-sub">From discovery to handoff — a structured process that's kept us on-time for 95% of our projects.</p>
+
+      <div class="process-grid">
+        <div class="process-step">
+          <div class="process-step__num">01 — DISCOVER</div>
+          <div class="process-step__title">Research & Strategy</div>
+          <p class="process-step__desc">User interviews, competitive analysis, and product audit. We align design goals with business metrics before a single pixel is placed.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-step__num">02 — DEFINE</div>
+          <div class="process-step__title">Information Architecture</div>
+          <p class="process-step__desc">User flows, sitemaps, and interaction models. We map every path so the final product feels intuitive — not learned.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-step__num">03 — DESIGN</div>
+          <div class="process-step__title">UI & Prototyping</div>
+          <p class="process-step__desc">High-fidelity Figma screens with a full design system. Interactive prototypes for stakeholder sign-off before dev handoff.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-step__num">04 — DELIVER</div>
+          <div class="process-step__title">Handoff & Support</div>
+          <p class="process-step__desc">Developer-ready specs, asset exports, and a design system doc. We stay available during implementation to answer every edge case.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ DELIVERABLES ═══ -->
+    <section>
+      <p class="section-label">What you get</p>
+      <h2 class="section-heading">Complete <em>design deliverables</em></h2>
+      <p class="section-sub">Everything your team needs to build, ship, and scale — nothing missing.</p>
+
+      <div class="deliverables-grid">
+        <div class="deliverable-item"><span class="deliverable-item__dot"></span>UX research report</div>
+        <div class="deliverable-item"><span class="deliverable-item__dot"></span>User flows & sitemaps</div>
+        <div class="deliverable-item"><span class="deliverable-item__dot"></span>Wireframes</div>
+        <div class="deliverable-item"><span class="deliverable-item__dot"></span>High-fidelity UI screens</div>
+        <div class="deliverable-item"><span class="deliverable-item__dot"></span>Interactive prototype</div>
+        <div class="deliverable-item"><span class="deliverable-item__dot"></span>Design system</div>
+        <div class="deliverable-item"><span class="deliverable-item__dot"></span>Component library</div>
+        <div class="deliverable-item"><span class="deliverable-item__dot"></span>Developer handoff specs</div>
+        <div class="deliverable-item"><span class="deliverable-item__dot"></span>Motion guidelines</div>
+        <div class="deliverable-item"><span class="deliverable-item__dot"></span>Responsive breakpoints</div>
+        <div class="deliverable-item"><span class="deliverable-item__dot"></span>Accessibility audit</div>
+        <div class="deliverable-item"><span class="deliverable-item__dot"></span>Brand guidelines</div>
+      </div>
+    </section>
+
+    <!-- ═══ CTA SECTION ═══ -->
+    <section class="cta-section">
+      <h2 class="cta-section__heading">Ready to ship <em>40% faster?</em></h2>
+      <p class="cta-section__sub">Book a free 30-minute discovery call. No commitment, no sales pitch — just clarity.</p>
+      <div class="cta-section__actions">
+        <a href="/contact.html" class="btn-primary">
+          Book a free call
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="page-footer">
+  <div class="container">
+    <div class="page-footer__inner">
+      <span class="footer-copy">© 2025 Vibrantaa. All rights reserved.</span>
+      <div class="footer-links">
+        <a href="/contact.html">Contact</a>
+        <a href="/#services">Services</a>
+        <a href="/#projects">Projects</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
