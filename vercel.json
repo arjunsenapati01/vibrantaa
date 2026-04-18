@@ -1,6 +1,7 @@
 {
   "outputDirectory": ".",
   "routes": [
-    { "src": "/contact", "dest": "/contact.html" }
+    { "src": "/contact", "dest": "/contact.html" },
+    { "src": "/services/ui-ux-design", "dest": "/services/ui-ux-design.html" }
   ]
 }
